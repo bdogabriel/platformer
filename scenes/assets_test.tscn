@@ -1,0 +1,213 @@
+[gd_scene load_steps=37 format=3 uid="uid://cbjtql4lpnj4"]
+
+[ext_resource type="Texture2D" uid="uid://cm6jor07mp78h" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_ae8tg"]
+[ext_resource type="Texture2D" uid="uid://c1cfff7jo3fcw" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="1_feul4"]
+[ext_resource type="Texture2D" uid="uid://ckd55510r6ekh" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" id="2_bd00n"]
+[ext_resource type="Texture2D" uid="uid://cfnt5i41ng31x" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 03.png" id="3_l3x0a"]
+[ext_resource type="Texture2D" uid="uid://bpd0gehx4n1ux" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 04.png" id="4_ur8kb"]
+[ext_resource type="Texture2D" uid="uid://dx1ys20smqngk" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 05.png" id="5_bebqj"]
+[ext_resource type="Texture2D" uid="uid://dq88yqke04osj" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="6_fj6l1"]
+[ext_resource type="Texture2D" uid="uid://dms45grrraets" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="7_435n1"]
+[ext_resource type="Texture2D" uid="uid://dghnk88aaspmu" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="8_mhhdu"]
+[ext_resource type="Texture2D" uid="uid://d0ymkofyp4hbw" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="9_uydgt"]
+[ext_resource type="Texture2D" uid="uid://bljtfswfrqueq" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="10_7lxxx"]
+[ext_resource type="Texture2D" uid="uid://bj1meh5re6fpe" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" id="11_rfsgj"]
+[ext_resource type="Texture2D" uid="uid://dmmeo6kh4vrhx" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="12_4yqso"]
+[ext_resource type="Texture2D" uid="uid://c4w7wwijwli3u" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" id="13_h65sh"]
+[ext_resource type="Texture2D" uid="uid://ce1ibnotg5t0v" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="14_w8f4x"]
+[ext_resource type="Texture2D" uid="uid://mc8xjafxjqie" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="15_8a7rp"]
+[ext_resource type="Texture2D" uid="uid://cp85nd8qbyoqa" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="16_451nv"]
+[ext_resource type="Texture2D" uid="uid://bnt5hivj7pqc" path="res://addons/Treasure Hunters/Merchant Ship/Sprites/Barrel/Idle/1.png" id="18_hwqus"]
+[ext_resource type="Texture2D" uid="uid://dcf52aia0i3ld" path="res://addons/Treasure Hunters/Merchant Ship/Sprites/Box/Idle/1.png" id="19_0v2vr"]
+[ext_resource type="Texture2D" uid="uid://d28355xxtm73g" path="res://addons/Treasure Hunters/Merchant Ship/Sprites/Chest/Idle/1.png" id="20_j8stk"]
+[ext_resource type="Texture2D" uid="uid://q6wwfrlqcexg" path="res://addons/Treasure Hunters/Merchant Ship/Sprites/Ship/Anchor/1.png" id="21_6diy4"]
+[ext_resource type="Texture2D" uid="uid://bvpt3ho7fcsy1" path="res://addons/Treasure Hunters/Merchant Ship/Sprites/Ship/Anchor/2.png" id="22_ip48c"]
+[ext_resource type="Texture2D" uid="uid://bvy2rpk8njppb" path="res://addons/Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/1.png" id="23_wb2pi"]
+[ext_resource type="Texture2D" uid="uid://biqt6a46glvfy" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 01.png" id="24_xiihi"]
+[ext_resource type="Texture2D" uid="uid://bigviw10wcrwn" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 01.png" id="25_nvggl"]
+[ext_resource type="Texture2D" uid="uid://pw731sow37n4" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 01.png" id="26_3ox24"]
+[ext_resource type="Texture2D" uid="uid://cgnaelbkpse60" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Sky.png" id="27_630tc"]
+[ext_resource type="Texture2D" uid="uid://blkqn0dvy8oxa" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Water.png" id="28_si01f"]
+[ext_resource type="Texture2D" uid="uid://nd0m6jol24c3" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="29_8v0lj"]
+[ext_resource type="Texture2D" uid="uid://2jhn6cvxoq5f" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="30_k0wdl"]
+[ext_resource type="Texture2D" uid="uid://cjtgo2e1fm3yp" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="31_xvfjr"]
+[ext_resource type="Texture2D" uid="uid://b7eow2dh0qkwd" path="res://addons/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="32_6kgcj"]
+[ext_resource type="Texture2D" uid="uid://b5in1jrk5ewpy" path="res://addons/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="33_qdnvu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxs2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_feul4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bd00n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l3x0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ur8kb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bebqj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vpgo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fj6l1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_435n1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mhhdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uydgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7lxxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4tr0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rfsgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4yqso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_h65sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_w8f4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8a7rp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_451nv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AssetsTest" type="Node2D"]
+
+[node name="BgImage" type="Sprite2D" parent="."]
+position = Vector2(813, 345)
+scale = Vector2(5.45313, 5.45313)
+texture = ExtResource("1_ae8tg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(118.4, 74)
+scale = Vector2(4.7, 4.7)
+sprite_frames = SubResource("SpriteFrames_pxs2v")
+autoplay = "default"
+frame_progress = 0.814844
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(428, 71)
+scale = Vector2(4.7, 4.7)
+sprite_frames = SubResource("SpriteFrames_3vpgo")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(700, 72)
+scale = Vector2(4.7, 4.7)
+sprite_frames = SubResource("SpriteFrames_4tr0s")
+autoplay = "default"
+frame_progress = 0.558022
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(932, 56)
+scale = Vector2(3, 3)
+texture = ExtResource("18_hwqus")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(1063, 55)
+scale = Vector2(3.45455, 3.45455)
+texture = ExtResource("19_0v2vr")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(1203.5, 39.5)
+scale = Vector2(2.28125, 2.28125)
+texture = ExtResource("20_j8stk")
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(1285, 117)
+scale = Vector2(2.33333, 2.33333)
+texture = ExtResource("21_6diy4")
+
+[node name="5" type="Sprite2D" parent="."]
+position = Vector2(1285.58, 71.5)
+scale = Vector2(3.16667, 3.16667)
+texture = ExtResource("22_ip48c")
+
+[node name="6" type="Sprite2D" parent="."]
+position = Vector2(1144, 250)
+scale = Vector2(7.76923, 7.76923)
+texture = ExtResource("23_wb2pi")
+
+[node name="BackPalmTreeLeft01" type="Sprite2D" parent="."]
+position = Vector2(666.25, 290.838)
+scale = Vector2(3.91176, 3.91176)
+texture = ExtResource("24_xiihi")
+
+[node name="BackPalmTreeRegular01" type="Sprite2D" parent="."]
+position = Vector2(428, 283)
+scale = Vector2(3.3125, 3.3125)
+texture = ExtResource("25_nvggl")
+
+[node name="BackPalmTreeRight01" type="Sprite2D" parent="."]
+position = Vector2(199, 286)
+scale = Vector2(4.03846, 4.03846)
+texture = ExtResource("26_3ox24")
+
+[node name="AdditionalSky" type="Sprite2D" parent="."]
+position = Vector2(1743, -157)
+scale = Vector2(6.71875, 6.71875)
+texture = ExtResource("27_630tc")
+
+[node name="AdditionalWater" type="Sprite2D" parent="."]
+position = Vector2(1724, 842)
+scale = Vector2(8.5, 8.5)
+texture = ExtResource("28_si01f")
+
+[node name="BigClouds" type="Sprite2D" parent="."]
+position = Vector2(1606, 59)
+texture = ExtResource("29_8v0lj")
+
+[node name="Spikes" type="Sprite2D" parent="."]
+position = Vector2(-478, 67.9999)
+scale = Vector2(8.875, 8.875)
+texture = ExtResource("30_k0wdl")
+
+[node name="Terrain(32x32)" type="Sprite2D" parent="."]
+position = Vector2(502, -264)
+scale = Vector2(2.66875, 2.66875)
+texture = ExtResource("31_xvfjr")
+
+[node name="Platforms(32x32)" type="Sprite2D" parent="."]
+position = Vector2(-511, -302)
+scale = Vector2(2.5625, 2.5625)
+texture = ExtResource("32_6kgcj")
+
+[node name="TerrainAndBackWall(32x32)" type="Sprite2D" parent="."]
+position = Vector2(472.904, -1016.25)
+scale = Vector2(2.49399, 2.49399)
+texture = ExtResource("33_qdnvu")
