@@ -502,29 +502,43 @@ height = 104.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tu5yy"]
 size = Vector2(58, 106)
 
-[node name="Player" groups=["player"] instance=ExtResource("1_ft8wo")]
+[node name="Player" node_paths=PackedStringArray("movement_component") groups=["player"] instance=ExtResource("1_ft8wo")]
 script = ExtResource("2_bwnhr")
+movement_component = NodePath("MovementComponent")
 
-[node name="AnimationPlayer" parent="." index="0"]
+[node name="Camera2D" type="Camera2D" parent="." index="0"]
+offset = Vector2(150, -100)
+zoom = Vector2(0.8, 0.8)
+
+[node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_puosj")
 }
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("2_6mxvd")
 
-[node name="AnimationTree" parent="." index="2"]
+[node name="AnimationTree" parent="." index="3"]
+parameters/air/blend_position = 0.0
 parameters/floor/blend_position = 0
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="4"]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_qxkga")
-
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
-offset = Vector2(150, -100)
-zoom = Vector2(0.8, 0.8)
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 visible = false
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_tu5yy")
+
+[node name="AnimationHandlerComponent" parent="." index="6" node_paths=PackedStringArray("state_machine", "animation_tree", "movement_component")]
+state_machine = NodePath("../StateMachine")
+animation_tree = NodePath("../AnimationTree")
+movement_component = NodePath("../MovementComponent")
+
+[node name="MovementComponent" parent="." index="7" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
+[node name="StateMachine" parent="." index="8" node_paths=PackedStringArray("character", "movement_component")]
+character = NodePath("..")
+movement_component = NodePath("../MovementComponent")

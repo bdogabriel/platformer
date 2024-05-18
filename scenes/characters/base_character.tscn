@@ -1,6 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://dn33fimrb7svm"]
+[gd_scene load_steps=33 format=3 uid="uid://dn33fimrb7svm"]
 
-[ext_resource type="Script" path="res://scripts/base_character.gd" id="1_wi10h"]
+[ext_resource type="PackedScene" uid="uid://cbau1r0xu3pvv" path="res://scenes/components/animation_handler_component.tscn" id="2_8tl0y"]
+[ext_resource type="PackedScene" uid="uid://boy6iutso4lgw" path="res://scenes/components/movement_component.tscn" id="2_eooj5"]
+[ext_resource type="PackedScene" uid="uid://bfafm6vfaa1ew" path="res://scenes/states/floor_state.tscn" id="3_jw82q"]
+[ext_resource type="PackedScene" uid="uid://ddfutia366772" path="res://scenes/states/air_state.tscn" id="4_3qukg"]
+[ext_resource type="PackedScene" uid="uid://df4hwrscq6jmr" path="res://scenes/states/landing_state.tscn" id="5_fw8qb"]
+[ext_resource type="PackedScene" uid="uid://bk74t2ug66va5" path="res://scenes/states/state_machine.tscn" id="6_bu5ey"]
 
 [sub_resource type="Animation" id="Animation_oibdl"]
 resource_name = "RESET"
@@ -542,20 +547,19 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iychw"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_neaex"]
-states/End/position = Vector2(628, 429)
+states/End/position = Vector2(662, 429)
 states/Start/position = Vector2(186, 429)
 states/air/node = SubResource("AnimationNodeBlendSpace1D_kocbo")
-states/air/position = Vector2(501.469, 429)
+states/air/position = Vector2(514.469, 429)
 states/floor/node = SubResource("AnimationNodeBlendSpace1D_jb0o5")
 states/floor/position = Vector2(341.469, 429)
-states/ground/node = SubResource("AnimationNodeAnimation_ycb48")
-states/ground/position = Vector2(421.469, 509)
-transitions = ["Start", "floor", SubResource("AnimationNodeStateMachineTransition_2c6ng"), "floor", "air", SubResource("AnimationNodeStateMachineTransition_uk1n0"), "air", "floor", SubResource("AnimationNodeStateMachineTransition_oxp3u"), "air", "ground", SubResource("AnimationNodeStateMachineTransition_wwcrs"), "ground", "floor", SubResource("AnimationNodeStateMachineTransition_cifio"), "ground", "air", SubResource("AnimationNodeStateMachineTransition_iychw")]
+states/landing/node = SubResource("AnimationNodeAnimation_ycb48")
+states/landing/position = Vector2(425.469, 519)
+transitions = ["Start", "floor", SubResource("AnimationNodeStateMachineTransition_2c6ng"), "floor", "air", SubResource("AnimationNodeStateMachineTransition_uk1n0"), "air", "floor", SubResource("AnimationNodeStateMachineTransition_oxp3u"), "air", "landing", SubResource("AnimationNodeStateMachineTransition_wwcrs"), "landing", "floor", SubResource("AnimationNodeStateMachineTransition_cifio"), "landing", "air", SubResource("AnimationNodeStateMachineTransition_iychw")]
 graph_offset = Vector2(-43.5305, 368)
 
 [node name="BaseCharacter" type="CharacterBody2D"]
 collision_mask = 4
-script = ExtResource("1_wi10h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -583,7 +587,17 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 debug_color = Color(0.784314, 0.431373, 0, 0.392157)
 
-[node name="JumpTimer" type="Timer" parent="."]
-one_shot = true
+[node name="AnimationHandlerComponent" parent="." instance=ExtResource("2_8tl0y")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("2_eooj5")]
+
+[node name="StateMachine" parent="." instance=ExtResource("6_bu5ey")]
+initial_states = Array[String](["floor"])
+
+[node name="AirState" parent="StateMachine" instance=ExtResource("4_3qukg")]
+
+[node name="FloorState" parent="StateMachine" instance=ExtResource("3_jw82q")]
+
+[node name="LandingState" parent="StateMachine" instance=ExtResource("5_fw8qb")]
 
 [connection signal="area_entered" from="Hitbox" to="." method="hit"]

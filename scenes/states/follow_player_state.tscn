@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drc10ke5vxaf6"]
+
+[ext_resource type="Script" path="res://scripts/follow_player_state.gd" id="1_owjmx"]
+
+[node name="FollowPlayerState" type="Node"]
+script = ExtResource("1_owjmx")

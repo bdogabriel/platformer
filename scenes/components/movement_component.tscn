@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://boy6iutso4lgw"]
+
+[ext_resource type="Script" path="res://scripts/movement_component.gd" id="1_st2rf"]
+
+[node name="MovementComponent" type="Node"]
+script = ExtResource("1_st2rf")
+
+[node name="JumpTimer" type="Timer" parent="."]
+one_shot = true

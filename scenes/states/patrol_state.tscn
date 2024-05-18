@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0gjlv5j4tfpl"]
+
+[ext_resource type="Script" path="res://scripts/patrol_state.gd" id="1_t5tk0"]
+
+[node name="PatrolState" type="Node"]
+script = ExtResource("1_t5tk0")

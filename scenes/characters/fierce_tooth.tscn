@@ -601,15 +601,15 @@ _data = {
 "run": SubResource("Animation_v8wnc")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5yu1"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u47tw"]
 radius = 34.0
 height = 92.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ard3w"]
 size = Vector2(70, 94)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ootww"]
-radius = 500.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_7a372"]
+radius = 450.0
 
 [node name="FierceTooth" instance=ExtResource("1_tvlh3")]
 
@@ -622,17 +622,51 @@ libraries = {
 texture = ExtResource("2_rvgpw")
 hframes = 8
 
+[node name="AnimationTree" parent="." index="2"]
+parameters/floor/blend_position = 0.0
+
 [node name="CollisionShape2D" parent="." index="3"]
-position = Vector2(-2, -2)
-shape = SubResource("CapsuleShape2D_f5yu1")
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_u47tw")
+metadata/_edit_lock_ = true
+
+[node name="Hitbox" parent="." index="4"]
+visible = false
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-visible = false
 position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_ard3w")
 
-[node name="AggroRange" parent="." index="8"]
-visible = false
+[node name="AnimationHandlerComponent" parent="." index="5" node_paths=PackedStringArray("state_machine", "animation_tree", "movement_component")]
+state_machine = NodePath("../StateMachine")
+animation_tree = NodePath("../AnimationTree")
+movement_component = NodePath("../MovementComponent")
+facing_right = false
 
-[node name="CollisionShape2D" parent="AggroRange" index="0"]
-shape = SubResource("CircleShape2D_ootww")
+[node name="CollisionShape2D" parent="AggroArea" index="0"]
+shape = SubResource("CircleShape2D_7a372")
+
+[node name="MovementComponent" parent="." index="7" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
+[node name="StateMachine" parent="." index="8" node_paths=PackedStringArray("character", "movement_component")]
+character = NodePath("..")
+movement_component = NodePath("../MovementComponent")
+
+[node name="FollowPlayerState" parent="StateMachine" index="2" node_paths=PackedStringArray("aggro_area", "navigation_component")]
+aggro_area = NodePath("../../AggroArea")
+navigation_component = NodePath("../../NavigationComponent")
+lose_aggro_radius = 700.0
+
+[node name="PatrolState" parent="StateMachine" index="4" node_paths=PackedStringArray("navigation_component")]
+navigation_component = NodePath("../../NavigationComponent")
+
+[node name="NavigationComponent" parent="." index="9" node_paths=PackedStringArray("character", "movement_component")]
+character = NodePath("..")
+movement_component = NodePath("../MovementComponent")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[editable path="StateMachine"]
