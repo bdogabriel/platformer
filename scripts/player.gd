@@ -3,7 +3,6 @@ class_name Player extends CharacterBody2D
 @export var movement_component: MovementComponent
 
 func _process(_delta: float) -> void:
-	#super(delta)
 	GameManager.player_global_position = position
 
 func _physics_process(_delta):

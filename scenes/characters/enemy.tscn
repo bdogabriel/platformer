@@ -606,30 +606,16 @@ libraries = {
 }
 
 [node name="AnimationTree" parent="." index="2"]
-parameters/floor/blend_position = 0
+parameters/movement/floor/blend_position = 0
 
-[node name="AggroArea" type="Area2D" parent="." index="6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea" index="0"]
-debug_color = Color(0.8, 1, 0.901961, 0.392157)
-
-[node name="MovementComponent" parent="." index="7"]
+[node name="MovementComponent" parent="." index="4"]
 speed = 3.0
 acceleration = 0.4
-jump_initial_velocity = 11.0
+jump_initial_velocity = 10.5
 jump_acceleration = 1.0
 jump_acceleration_time = 0.5
 
-[node name="StateMachine" parent="." index="8"]
-initial_states = Array[String](["floor", "patrol"])
-
-[node name="FollowPlayerState" parent="StateMachine" index="2" instance=ExtResource("3_ajyi7")]
-has_animation = false
-
-[node name="PatrolState" parent="StateMachine" index="4" instance=ExtResource("2_dekyp")]
-has_animation = false
-
-[node name="NavigationComponent" parent="." index="9" instance=ExtResource("4_kld6k")]
+[node name="NavigationComponent" parent="." index="5" instance=ExtResource("4_kld6k")]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="NavigationComponent" index="0"]
 path_desired_distance = 32.0
@@ -638,5 +624,29 @@ target_desired_distance = 32.0
 [node name="Timer" type="Timer" parent="NavigationComponent" index="1"]
 wait_time = 0.1
 autostart = true
+
+[node name="AggroArea" type="Area2D" parent="." index="6"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea" index="0"]
+debug_color = Color(0.8, 1, 0.901961, 0.392157)
+
+[node name="StateMachine" parent="." index="7"]
+initial_states = Array[String](["movement", "patrol"])
+
+[node name="MovementStateMachine" parent="StateMachine" index="0"]
+initial_states = Array[String](["floor"])
+
+[node name="FollowPlayerState" parent="StateMachine" index="2" instance=ExtResource("3_ajyi7")]
+has_animation = false
+
+[node name="PatrolState" parent="StateMachine" index="3" instance=ExtResource("2_dekyp")]
+has_animation = false
+
+[node name="BounceArea" type="Area2D" parent="." index="10"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea" index="0"]
 
 [editable path="StateMachine"]

@@ -6,17 +6,14 @@ class_name NavigationComponent extends Node2D
 const JUMP_MIN_Y_DIRECTION: float = 0.8 # to avoid jumping too much (when is not necessary)
 const RUN_MIN_X_DIRECTION: float = 0.1
 
-## Character referenced
-@export var character: CharacterBody2D
 @export var movement_component: MovementComponent
 
+@onready var character = movement_component.character
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var navigation_agent_timer: Timer = $Timer
 
 var update_target_func: Callable = func update_target(_navigation_agent: NavigationAgent2D) -> void:
 	pass
-
-signal update_target_func_set
 
 # wait for the first physics frame so the NavigationServer can sync.
 func navigation_server_sync() -> void:
@@ -26,8 +23,7 @@ func navigation_server_sync() -> void:
 func _ready() -> void:
 	set_physics_process(false)
 	call_deferred("navigation_server_sync")
-	navigation_agent_timer.timeout.connect(on_nav_agent_timer_timeout)
-	update_target_func_set.connect(on_update_target_func_set)
+	navigation_agent_timer.timeout.connect(_on_nav_agent_timer_timeout)
 	navigation_agent.target_position = character.global_position
 
 func _physics_process(_delta) -> void:
@@ -44,14 +40,9 @@ func _physics_process(_delta) -> void:
 # setters
 func set_update_target_func(function: Callable) -> void:
 	update_target_func = function
-	# navigation_agent.target_position = character.global_position does not work
-	# that's why signal is used
-	update_target_func_set.emit()
+	if character:
+		navigation_agent.target_position = character.global_position # reset target position
 
 # signal callbacks
-func on_nav_agent_timer_timeout() -> void:
+func _on_nav_agent_timer_timeout() -> void:
 	update_target_func.call(navigation_agent)
-
-# reset target position
-func on_update_target_func_set() -> void:
-	navigation_agent.target_position = character.global_position

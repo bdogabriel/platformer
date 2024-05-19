@@ -1,4 +1,4 @@
-extends State
+extends MovementState
 
 func _process(_delta):
 	if character.is_on_floor():

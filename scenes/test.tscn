@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://chcgtii2j1v51"]
 
 [ext_resource type="PackedScene" uid="uid://dumqfai5nax0j" path="res://scenes/characters/player.tscn" id="2_7k7yy"]
-[ext_resource type="PackedScene" uid="uid://dgdwow1ksl0v5" path="res://scenes/characters/fierce_tooth.tscn" id="3_2vii4"]
+[ext_resource type="PackedScene" uid="uid://dgdwow1ksl0v5" path="res://scenes/characters/fierce_tooth.tscn" id="2_cboxf"]
 [ext_resource type="Texture2D" uid="uid://b5in1jrk5ewpy" path="res://addons/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="3_ik1y6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d0t2b"]
@@ -367,14 +367,13 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_yc3yh")
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_7k7yy")]
+[node name="FierceTooth" parent="." instance=ExtResource("2_cboxf")]
 
-[node name="FierceTooth" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("3_2vii4")]
-position = Vector2(944, 465)
-patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2")]
+[node name="Player" parent="." instance=ExtResource("2_7k7yy")]
+position = Vector2(514, 150)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1104, 466)
+position = Vector2(1147, 466)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(815, 470)
+position = Vector2(773, 467)

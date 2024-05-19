@@ -33,8 +33,7 @@ func _physics_process(delta: float) -> void:
 	if character.is_on_floor():
 		jump_inertia = 0
 		if is_jumping:
-			character.velocity.y = jump_initial_velocity
-			jump_acceleration_timer.start()
+			jump()
 
 	# jumping
 	else:
@@ -61,7 +60,10 @@ func _physics_process(delta: float) -> void:
 	character.velocity.x = move_toward(character.velocity.x, target_velocity_x, acceleration)
 	character.move_and_slide()
 
-# determines direction character is moving
+func jump():
+	character.velocity.y = jump_initial_velocity
+	jump_acceleration_timer.start()
+
 func set_direction(dir: Vector2) -> void:
 	last_direction = direction
 	direction = dir

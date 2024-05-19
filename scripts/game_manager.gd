@@ -1,5 +1,6 @@
 extends Node
 
+# TODO: use pattern for private variables and methods to create documentation later
 # TODO: document scripts according to https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_documentation_comments.html
 # TODO: add descriptions to exported variables
 

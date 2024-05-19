@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dumqfai5nax0j"]
+[gd_scene load_steps=24 format=3 uid="uid://dumqfai5nax0j"]
 
 [ext_resource type="PackedScene" uid="uid://dn33fimrb7svm" path="res://scenes/characters/base_character.tscn" id="1_ft8wo"]
 [ext_resource type="Texture2D" uid="uid://b3eqe0wtccuhn" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle.png" id="2_6mxvd"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c2d32xo1vdp6u" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground.png" id="6_fp10u"]
 [ext_resource type="Texture2D" uid="uid://qew8u1v1hb5k" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit.png" id="7_ibdby"]
 [ext_resource type="Texture2D" uid="uid://cbegjjpm4uvci" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump.png" id="8_j8kod"]
+[ext_resource type="PackedScene" uid="uid://22q2werbyjfs" path="res://scenes/components/bounce_component.tscn" id="11_lude8"]
 
 [sub_resource type="Animation" id="Animation_52yj8"]
 resource_name = "RESET"
@@ -495,50 +496,56 @@ _data = {
 "run": SubResource("Animation_3iuoj")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxkga"]
-radius = 32.0
-height = 104.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_meko3"]
+radius = 28.0
+height = 112.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tu5yy"]
-size = Vector2(58, 106)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiwon"]
+size = Vector2(64, 16)
 
 [node name="Player" node_paths=PackedStringArray("movement_component") groups=["player"] instance=ExtResource("1_ft8wo")]
 script = ExtResource("2_bwnhr")
 movement_component = NodePath("MovementComponent")
 
-[node name="Camera2D" type="Camera2D" parent="." index="0"]
-offset = Vector2(150, -100)
-zoom = Vector2(0.8, 0.8)
-
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_puosj")
 }
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_6mxvd")
+metadata/_edit_lock_ = true
 
-[node name="AnimationTree" parent="." index="3"]
-parameters/air/blend_position = 0.0
-parameters/floor/blend_position = 0
+[node name="AnimationTree" parent="." index="2"]
+parameters/movement/floor/blend_position = 0
 
-[node name="CollisionShape2D" parent="." index="4"]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_qxkga")
+[node name="CollisionShape2D" parent="." index="3"]
+modulate = Color(1, 1, 1, 1)
+shape = SubResource("CapsuleShape2D_meko3")
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-visible = false
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_tu5yy")
+[node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
+[node name="StateMachine" parent="." index="5"]
+initial_states = Array[String](["movement"])
+
+[node name="MovementStateMachine" parent="StateMachine" index="0" node_paths=PackedStringArray("movement_component")]
+movement_component = NodePath("../../MovementComponent")
+initial_states = Array[String](["floor"])
 
 [node name="AnimationHandlerComponent" parent="." index="6" node_paths=PackedStringArray("state_machine", "animation_tree", "movement_component")]
 state_machine = NodePath("../StateMachine")
 animation_tree = NodePath("../AnimationTree")
 movement_component = NodePath("../MovementComponent")
 
-[node name="MovementComponent" parent="." index="7" node_paths=PackedStringArray("character")]
-character = NodePath("..")
-
-[node name="StateMachine" parent="." index="8" node_paths=PackedStringArray("character", "movement_component")]
-character = NodePath("..")
+[node name="BounceComponent" parent="." index="8" node_paths=PackedStringArray("movement_component") instance=ExtResource("11_lude8")]
 movement_component = NodePath("../MovementComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceComponent" index="0"]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_tiwon")
+
+[node name="Camera2D" type="Camera2D" parent="." index="9"]
+offset = Vector2(150, -100)
+zoom = Vector2(0.8, 0.8)
