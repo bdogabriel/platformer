@@ -11,11 +11,13 @@ class_name MovementComponent extends Node
 # to work with smaller numbers on inspector
 # times scale.x to keep physics consistent when changing character scale
 @onready var delta_multiplier: float = 100 * character.scale.x
-
 @onready var jump_acceleration_timer: Timer # time period in wich character is jumping (gaining acceleration)
+@onready var stop_movement_timer: Timer = $StopMovementTimer
+
 var jump_inertia: float # keep jump last direction if no x direction is set in set_direction
 var direction: Vector2i # vector that tells character movement direction (or intended movement direction)
 var last_direction: Vector2i
+var can_move: bool = true
 
 func _ready() -> void:
 	gravity *= delta_multiplier
@@ -27,8 +29,11 @@ func _ready() -> void:
 	jump_acceleration_timer.wait_time = jump_acceleration_time
 
 func _physics_process(delta: float) -> void:
-	var is_jumping: bool = direction.y < 0
-	var target_velocity_x: float = direction.x * speed
+	if not stop_movement_timer.time_left:
+		can_move = true
+	
+	var target_velocity_x: float = direction.x * speed if can_move else 0.0
+	var is_jumping: bool = direction.y < 0 and can_move
 	
 	if character.is_on_floor():
 		jump_inertia = 0
@@ -60,10 +65,24 @@ func _physics_process(delta: float) -> void:
 	character.velocity.x = move_toward(character.velocity.x, target_velocity_x, acceleration)
 	character.move_and_slide()
 
+func knock(dir: Vector2) -> void:
+	set_direction(Vector2i.ZERO)
+	var knock_dir = dir.round()
+	if knock_dir.x == 0:
+		var options: Array[float] = [1, -1]
+		knock_dir.x = options.pick_random()
+	character.velocity = Vector2(speed * 2, speed * 2) * knock_dir
+	stop_movement()
+
 func jump():
 	character.velocity.y = jump_initial_velocity
 	jump_acceleration_timer.start()
 
 func set_direction(dir: Vector2) -> void:
-	last_direction = direction
-	direction = dir
+	if can_move:
+		last_direction = direction
+		direction = dir
+
+func stop_movement(time: float = 0.4):
+	can_move = false
+	stop_movement_timer.start(time)

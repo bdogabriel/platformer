@@ -1,7 +1,4 @@
 class_name NavigationComponent extends Node2D
-## Implements 
-##
-## This component must have a NaviagtionAgent2D and a Timer for the navigation agent as children
 
 const JUMP_MIN_Y_DIRECTION: float = 0.8 # to avoid jumping too much (when is not necessary)
 const RUN_MIN_X_DIRECTION: float = 0.1

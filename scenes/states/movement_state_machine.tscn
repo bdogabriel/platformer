@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://bms0j0udwad0"]
+
+[ext_resource type="Script" path="res://scripts/movement_state_machine.gd" id="1_m5pp4"]
+[ext_resource type="PackedScene" uid="uid://ddfutia366772" path="res://scenes/states/air_state.tscn" id="2_pcr2h"]
+[ext_resource type="PackedScene" uid="uid://bfafm6vfaa1ew" path="res://scenes/states/floor_state.tscn" id="3_d501p"]
+[ext_resource type="PackedScene" uid="uid://df4hwrscq6jmr" path="res://scenes/states/landing_state.tscn" id="4_mdnny"]
+
+[node name="MovementStateMachine" type="Node"]
+script = ExtResource("1_m5pp4")
+
+[node name="AirState" parent="." instance=ExtResource("2_pcr2h")]
+
+[node name="FloorState" parent="." instance=ExtResource("3_d501p")]
+
+[node name="LandingState" parent="." instance=ExtResource("4_mdnny")]

@@ -1,13 +1,15 @@
-[gd_scene load_steps=39 format=3 uid="uid://dn33fimrb7svm"]
+[gd_scene load_steps=48 format=3 uid="uid://dn33fimrb7svm"]
 
 [ext_resource type="PackedScene" uid="uid://cbau1r0xu3pvv" path="res://scenes/components/animation_handler_component.tscn" id="2_8tl0y"]
 [ext_resource type="PackedScene" uid="uid://boy6iutso4lgw" path="res://scenes/components/movement_component.tscn" id="2_eooj5"]
-[ext_resource type="PackedScene" uid="uid://bfafm6vfaa1ew" path="res://scenes/states/floor_state.tscn" id="3_jw82q"]
-[ext_resource type="Script" path="res://scripts/movement_state_machine.gd" id="3_rwl2k"]
-[ext_resource type="PackedScene" uid="uid://ddfutia366772" path="res://scenes/states/air_state.tscn" id="4_3qukg"]
-[ext_resource type="PackedScene" uid="uid://df4hwrscq6jmr" path="res://scenes/states/landing_state.tscn" id="5_fw8qb"]
+[ext_resource type="PackedScene" uid="uid://bms0j0udwad0" path="res://scenes/states/movement_state_machine.tscn" id="3_625hv"]
+[ext_resource type="PackedScene" uid="uid://dngj2kpvu3obq" path="res://scenes/states/hit_state.tscn" id="4_gwjqg"]
+[ext_resource type="PackedScene" uid="uid://b5q4ojyhco7dw" path="res://scenes/components/hitbox_component.tscn" id="6_0ei7v"]
 [ext_resource type="PackedScene" uid="uid://bk74t2ug66va5" path="res://scenes/states/state_machine.tscn" id="6_bu5ey"]
-[ext_resource type="Script" path="res://scripts/hit_state.gd" id="7_ewer5"]
+[ext_resource type="PackedScene" uid="uid://6h5gw1x4bqno" path="res://scenes/components/health_component.tscn" id="6_pmguw"]
+[ext_resource type="PackedScene" uid="uid://7cavhxkcqggr" path="res://scenes/states/dead_state.tscn" id="7_g4pg8"]
+[ext_resource type="PackedScene" uid="uid://bu3rt43vkg8de" path="res://scenes/components/attack_area_component.tscn" id="8_ykqfj"]
+[ext_resource type="PackedScene" uid="uid://c5ddq8nvc7pnc" path="res://scenes/components/attack_component.tscn" id="9_u6mrr"]
 
 [sub_resource type="Animation" id="Animation_oibdl"]
 resource_name = "RESET"
@@ -494,6 +496,28 @@ _data = {
 "run": SubResource("Animation_xggtp")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k7ybq"]
+animation = &"dead_ground"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fcygk"]
+animation = &"dead_hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3cg8l"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dqpcs"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4xqgq"]
+states/End/position = Vector2(633, 100)
+states/dead_ground/node = SubResource("AnimationNodeAnimation_k7ybq")
+states/dead_ground/position = Vector2(496, 100)
+states/dead_hit/node = SubResource("AnimationNodeAnimation_fcygk")
+states/dead_hit/position = Vector2(338, 100)
+transitions = ["Start", "dead_hit", SubResource("AnimationNodeStateMachineTransition_3cg8l"), "dead_hit", "dead_ground", SubResource("AnimationNodeStateMachineTransition_dqpcs")]
+graph_offset = Vector2(-189.541, 0)
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n14ms"]
 animation = &"hit"
 
@@ -503,11 +527,16 @@ animation = &"fall"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xsp6i"]
 animation = &"jump"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1pqy2"]
+animation = &"fall"
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_y3o5n"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_ls4e3")
 blend_point_0/pos = 1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_xsp6i")
 blend_point_1/pos = -1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_1pqy2")
+blend_point_2/pos = 0.0
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p3jw2"]
@@ -563,15 +592,21 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ped5v"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hx5ku"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iflov"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_neaex"]
 states/End/position = Vector2(599, 429)
 states/Start/position = Vector2(178.47, 429)
+states/dead/node = SubResource("AnimationNodeStateMachine_4xqgq")
+states/dead/position = Vector2(420.469, 526)
 states/hit/node = SubResource("AnimationNodeAnimation_n14ms")
 states/hit/position = Vector2(481.469, 429)
 states/movement/node = SubResource("AnimationNodeStateMachine_rnens")
 states/movement/position = Vector2(334.47, 429)
-transitions = ["Start", "movement", SubResource("AnimationNodeStateMachineTransition_fcnat"), "movement", "hit", SubResource("AnimationNodeStateMachineTransition_ped5v"), "hit", "movement", SubResource("AnimationNodeStateMachineTransition_hx5ku")]
+transitions = ["Start", "movement", SubResource("AnimationNodeStateMachineTransition_fcnat"), "movement", "hit", SubResource("AnimationNodeStateMachineTransition_ped5v"), "hit", "movement", SubResource("AnimationNodeStateMachineTransition_hx5ku"), "movement", "dead", SubResource("AnimationNodeStateMachineTransition_iflov")]
 graph_offset = Vector2(-87.5305, 329)
 
 [node name="BaseCharacter" type="CharacterBody2D"]
@@ -590,30 +625,35 @@ hframes = 5
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_neaex")
 anim_player = NodePath("../AnimationPlayer")
-parameters/movement/air/blend_position = 0
+parameters/movement/air/blend_position = -0.000778198
 parameters/movement/floor/blend_position = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(1, 1, 1, 0.5)
+
+[node name="AnimationHandlerComponent" parent="." instance=ExtResource("2_8tl0y")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("6_pmguw")]
+
+[node name="AttackComponent" parent="." instance=ExtResource("9_u6mrr")]
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_eooj5")]
 
 [node name="StateMachine" parent="." instance=ExtResource("6_bu5ey")]
 initial_states = Array[String](["floor"])
 
-[node name="MovementStateMachine" type="Node" parent="StateMachine"]
-script = ExtResource("3_rwl2k")
+[node name="MovementStateMachine" parent="StateMachine" instance=ExtResource("3_625hv")]
 
-[node name="AirState" parent="StateMachine/MovementStateMachine" instance=ExtResource("4_3qukg")]
+[node name="HitState" parent="StateMachine" instance=ExtResource("4_gwjqg")]
 
-[node name="FloorState" parent="StateMachine/MovementStateMachine" instance=ExtResource("3_jw82q")]
+[node name="DeadState" parent="StateMachine" instance=ExtResource("7_g4pg8")]
 
-[node name="LandingState" parent="StateMachine/MovementStateMachine" instance=ExtResource("5_fw8qb")]
+[node name="HitboxComponent" parent="." instance=ExtResource("6_0ei7v")]
 
-[node name="HitState" type="Node" parent="StateMachine"]
-script = ExtResource("7_ewer5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+debug_color = Color(0.701961, 0.596078, 0.0705882, 0.431373)
 
-[node name="AnimationHandlerComponent" parent="." instance=ExtResource("2_8tl0y")]
-facing_right = null
+[node name="AttackAreaComponent" parent="." instance=ExtResource("8_ykqfj")]
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackAreaComponent"]
+debug_color = Color(0.121569, 0.6, 0.121569, 0.431373)

@@ -4,16 +4,17 @@ class_name State extends Node
 
 @onready var state_machine: StateMachine = find_parent("*StateMachine")
 
-signal change_state
+var prev_state_name: String
 
-func _enter() -> void:
+func _enter(_last_state_name: String) -> void:
 	pass
 	
 func _exit() -> void:
 	pass
 
-func enter() -> void:
-	_enter()
+func enter(last_state_name: String = "") -> void:
+	prev_state_name = last_state_name
+	_enter(last_state_name)
 	
 func exit() -> void:
 	_exit()

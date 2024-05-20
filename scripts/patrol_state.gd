@@ -15,7 +15,7 @@ func _ready() -> void:
 			marker.global_position = character.global_position
 			patrol_points.append(marker)
 
-func _enter() -> void:
+func _enter(_last_state_name) -> void:
 	navigation_component.set_update_target_func(_update_target)
 
 func _update_target(navigation_agent: NavigationAgent2D) -> void:

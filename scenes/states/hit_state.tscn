@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dngj2kpvu3obq"]
+
+[ext_resource type="Script" path="res://scripts/hit_state.gd" id="1_4rxjp"]
+
+[node name="HitState" type="Node"]
+script = ExtResource("1_4rxjp")

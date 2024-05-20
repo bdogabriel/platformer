@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dgdwow1ksl0v5"]
+[gd_scene load_steps=28 format=3 uid="uid://bve8kxdr4ytm1"]
 
 [ext_resource type="PackedScene" uid="uid://cdmpnx1acacqk" path="res://scenes/characters/enemy.tscn" id="1_tvlh3"]
 [ext_resource type="Texture2D" uid="uid://cqhqfrbriyqci" path="res://addons/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle.png" id="2_rvgpw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://s3k1dvvjtfnj" path="res://addons/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/05-Ground/Ground.png" id="4_kqq2f"]
 [ext_resource type="Texture2D" uid="uid://cr82gvretk18u" path="res://addons/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack.png" id="4_y2qy8"]
 [ext_resource type="Texture2D" uid="uid://dogrjdcfybi2c" path="res://addons/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/10-Dead Ground/Dead Ground.png" id="5_acn6e"]
+[ext_resource type="Texture2D" uid="uid://csw08o64r4eas" path="res://addons/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit.png" id="6_ykl57"]
 [ext_resource type="Texture2D" uid="uid://dkruhhyd2d51h" path="res://addons/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit.png" id="8_cggyq"]
 
 [sub_resource type="Animation" id="Animation_rohhb"]
@@ -232,7 +233,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [null]
+"values": [ExtResource("6_ykl57")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -601,15 +602,18 @@ _data = {
 "run": SubResource("Animation_v8wnc")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3uvi"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nry38"]
 radius = 34.0
 height = 92.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7a372"]
 radius = 450.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4m2h"]
-size = Vector2(64, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0733"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b53i2"]
+size = Vector2(68, 75)
 
 [node name="FierceTooth" instance=ExtResource("1_tvlh3")]
 
@@ -623,13 +627,19 @@ texture = ExtResource("2_rvgpw")
 hframes = 8
 metadata/_edit_lock_ = true
 
+[node name="AnimationTree" parent="." index="2"]
+parameters/movement/air/blend_position = 0
+
 [node name="CollisionShape2D" parent="." index="3"]
-position = Vector2(-2, -1)
-shape = SubResource("CapsuleShape2D_p3uvi")
+position = Vector2(-2, -2)
+shape = SubResource("CapsuleShape2D_nry38")
 metadata/_edit_lock_ = true
 
-[node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("character")]
-character = NodePath("..")
+[node name="AnimationHandlerComponent" parent="." index="4" node_paths=PackedStringArray("movement_component", "state_machine", "animation_tree")]
+movement_component = NodePath("../MovementComponent")
+state_machine = NodePath("../StateMachine")
+animation_tree = NodePath("../AnimationTree")
+facing_right = false
 
 [node name="NavigationComponent" parent="." index="5" node_paths=PackedStringArray("movement_component")]
 movement_component = NodePath("../MovementComponent")
@@ -642,8 +652,18 @@ visible = false
 [node name="CollisionShape2D" parent="AggroArea" index="0"]
 shape = SubResource("CircleShape2D_7a372")
 
+[node name="HealthComponent" parent="." index="7" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
+[node name="MovementComponent" parent="." index="9" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
 [node name="MovementStateMachine" parent="StateMachine" index="0" node_paths=PackedStringArray("movement_component")]
 movement_component = NodePath("../../MovementComponent")
+
+[node name="HitState" parent="StateMachine" index="1" node_paths=PackedStringArray("movement_component", "hitbox_components")]
+movement_component = NodePath("../../MovementComponent")
+hitbox_components = [NodePath("../../HitboxComponent")]
 
 [node name="FollowPlayerState" parent="StateMachine" index="2" node_paths=PackedStringArray("aggro_area", "navigation_component")]
 aggro_area = NodePath("../../AggroArea")
@@ -653,14 +673,23 @@ lose_aggro_radius = 700.0
 [node name="PatrolState" parent="StateMachine" index="3" node_paths=PackedStringArray("navigation_component")]
 navigation_component = NodePath("../../NavigationComponent")
 
-[node name="AnimationHandlerComponent" parent="." index="8" node_paths=PackedStringArray("state_machine", "animation_tree", "movement_component")]
-state_machine = NodePath("../StateMachine")
-animation_tree = NodePath("../AnimationTree")
-movement_component = NodePath("../MovementComponent")
-facing_right = false
+[node name="DeadState" parent="StateMachine" index="4" node_paths=PackedStringArray("health_component", "attack_component", "movement_component")]
+health_component = NodePath("../../HealthComponent")
+attack_component = NodePath("../../AttackComponent")
+movement_component = NodePath("../../MovementComponent")
 
-[node name="CollisionShape2D" parent="BounceArea" index="0"]
-position = Vector2(-4, -40)
-shape = SubResource("RectangleShape2D_a4m2h")
+[node name="HitboxComponent" parent="." index="11" node_paths=PackedStringArray("health_component")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(-1, -40)
+shape = SubResource("RectangleShape2D_t0733")
+
+[node name="AttackAreaComponent" parent="." index="12" node_paths=PackedStringArray("attack_component")]
+attack_component = NodePath("../AttackComponent")
+
+[node name="CollisionShape2D" parent="AttackAreaComponent" index="0"]
+position = Vector2(-2, 6.5)
+shape = SubResource("RectangleShape2D_b53i2")
 
 [editable path="StateMachine"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ddq8nvc7pnc"]
+
+[ext_resource type="Script" path="res://scripts/attack_component.gd" id="1_phoh8"]
+
+[node name="AttackComponent" type="Node"]
+script = ExtResource("1_phoh8")
+
+[node name="StopAttackingTimer" type="Timer" parent="."]
+one_shot = true
