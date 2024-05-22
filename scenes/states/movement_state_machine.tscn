@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bfafm6vfaa1ew" path="res://scenes/states/floor_state.tscn" id="3_d501p"]
 [ext_resource type="PackedScene" uid="uid://df4hwrscq6jmr" path="res://scenes/states/landing_state.tscn" id="4_mdnny"]
 
-[node name="MovementStateMachine" type="Node"]
+[node name="MovementStateMachine" type="Node" node_paths=PackedStringArray("initial_states")]
 script = ExtResource("1_m5pp4")
+initial_states = [NodePath("FloorState")]
 
 [node name="AirState" parent="." instance=ExtResource("2_pcr2h")]
 

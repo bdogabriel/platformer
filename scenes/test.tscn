@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://chcgtii2j1v51"]
 
-[ext_resource type="PackedScene" uid="uid://dumqfai5nax0j" path="res://scenes/characters/player.tscn" id="2_7k7yy"]
-[ext_resource type="PackedScene" uid="uid://bve8kxdr4ytm1" path="res://scenes/characters/fierce_tooth.tscn" id="2_fqacv"]
+[ext_resource type="PackedScene" uid="uid://dumqfai5nax0j" path="res://scenes/characters/player.tscn" id="2_f21id"]
+[ext_resource type="PackedScene" uid="uid://bve8kxdr4ytm1" path="res://scenes/characters/fierce_tooth.tscn" id="3_ckmqi"]
 [ext_resource type="Texture2D" uid="uid://b5in1jrk5ewpy" path="res://addons/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="3_ik1y6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d0t2b"]
@@ -340,7 +340,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_wivkr"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 0
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_d0t2b")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yc3yh"]
@@ -367,15 +367,25 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_yc3yh")
 metadata/_edit_lock_ = true
 
-[node name="FierceTooth" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("2_fqacv")]
-position = Vector2(942, 454)
-patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2")]
-
-[node name="Player" parent="." instance=ExtResource("2_7k7yy")]
-position = Vector2(108, 297)
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1147, 466)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(773, 467)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(2053, 487)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(2279, 486)
+
+[node name="Player" parent="." instance=ExtResource("2_f21id")]
+position = Vector2(134, 447)
+
+[node name="FierceTooth" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("3_ckmqi")]
+position = Vector2(950, 466)
+patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2")]
+
+[node name="FierceTooth2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("3_ckmqi")]
+position = Vector2(2193, 463)
+patrol_points = [NodePath("../Marker2D4"), NodePath("../Marker2D3")]

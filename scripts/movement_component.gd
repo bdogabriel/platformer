@@ -43,7 +43,6 @@ func _physics_process(delta: float) -> void:
 	# jumping
 	else:
 		character.velocity.y += gravity * delta
-		
 		# if jump and hold, goes further
 		if jump_acceleration_timer.time_left:
 			if is_jumping:
@@ -63,22 +62,35 @@ func _physics_process(delta: float) -> void:
 
 	# move_toward function to smoothen movement
 	character.velocity.x = move_toward(character.velocity.x, target_velocity_x, acceleration)
-	character.move_and_slide()
+	character.move_and_slide() 
 
-func knock(dir: Vector2) -> void:
-	set_direction(Vector2i.ZERO)
-	var knock_dir = dir.round()
-	if knock_dir.x == 0:
-		var options: Array[float] = [1, -1]
-		knock_dir.x = options.pick_random()
-	character.velocity = Vector2(speed * 2, speed * 2) * knock_dir
-	stop_movement()
+# hit stun, knock and bounce mechanic
+func knock(normal: Vector2, stun: bool = true, knock_speed: float = speed * 2.5) -> void:
+	var knock_dir: Vector2 = normal
+	
+	if not stun and direction:
+		if direction == Vector2i.UP:
+			# if jumping on impact just goes up to give more control to the player
+			knock_dir = Vector2.UP 
+		else:
+			# just adds direction to the normal
+			knock_dir = (normal + Vector2(direction)).normalized()
+	
+	# to avoid characters jumping after grounded hits
+	if character.is_on_floor():
+		knock_dir.y = 0
+	
+	character.velocity = knock_dir * knock_speed
+	set_direction(knock_dir.sign())
+	
+	if stun:
+		stop_movement()
 
 func jump():
 	character.velocity.y = jump_initial_velocity
 	jump_acceleration_timer.start()
 
-func set_direction(dir: Vector2) -> void:
+func set_direction(dir: Vector2i) -> void:
 	if can_move:
 		last_direction = direction
 		direction = dir

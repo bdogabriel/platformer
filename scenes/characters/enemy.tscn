@@ -597,6 +597,7 @@ _data = {
 }
 
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_iugnh")]
+collision_layer = 2
 wall_min_slide_angle = 0.0
 script = ExtResource("2_j3eo3")
 
@@ -631,13 +632,6 @@ jump_initial_velocity = 10.5
 jump_acceleration = 1.0
 jump_acceleration_time = 0.5
 
-[node name="StateMachine" parent="." index="10"]
-initial_states = Array[String](["movement", "patrol"])
-has_animation = true
-
-[node name="MovementStateMachine" parent="StateMachine" index="0"]
-initial_states = Array[String](["floor"])
-
 [node name="FollowPlayerState" parent="StateMachine" index="2" instance=ExtResource("3_ajyi7")]
 lose_aggro_radius = null
 has_animation = false
@@ -645,7 +639,12 @@ has_animation = false
 [node name="PatrolState" parent="StateMachine" index="3" instance=ExtResource("2_dekyp")]
 has_animation = false
 
-[node name="DeadState" parent="StateMachine" index="4"]
-has_animation = true
+[node name="HitboxComponent" parent="." index="11"]
+collision_layer = 64
+collision_mask = 8
+
+[node name="AttackAreaComponent" parent="." index="12"]
+collision_layer = 32
+collision_mask = 16
 
 [editable path="StateMachine"]

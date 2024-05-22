@@ -15,11 +15,12 @@ func _process(_delta):
 	else:
 		_processed_hit = true
 
-func _on_hit(knock_dir: Vector2, current_hp: float):
+func _on_hit(normal: Vector2, current_hp: float):
 	var current_animated_states_names: Array[String] = state_machine.get_current_states_names(false, {"has_animation": true})
 	var next_state = name_format() if current_hp > 0 else "dead"
+	
 	if next_state == name_format():
 		_processed_hit = false
-
-	movement_component.knock(knock_dir)
+	
+	movement_component.knock(normal)
 	state_machine.change_state(current_animated_states_names[0], next_state)

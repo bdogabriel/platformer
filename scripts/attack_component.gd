@@ -1,6 +1,6 @@
 class_name AttackComponent extends Node
 
-@export var damage: float = 2
+@export var damage: float = 1
 
 @onready var stop_attacking_timer: Timer = $StopAttackingTimer
 

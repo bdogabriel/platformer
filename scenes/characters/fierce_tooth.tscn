@@ -587,7 +587,7 @@ tracks/3/keys = {
 "values": [Vector2(0, -4)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eyrwr"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3te3y"]
 _data = {
 "RESET": SubResource("Animation_rohhb"),
 "anticipation": SubResource("Animation_wnu5a"),
@@ -610,16 +610,16 @@ height = 92.0
 radius = 450.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0733"]
-size = Vector2(80, 16)
+size = Vector2(90, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b53i2"]
-size = Vector2(68, 75)
+size = Vector2(68, 76)
 
 [node name="FierceTooth" instance=ExtResource("1_tvlh3")]
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_eyrwr")
+"": SubResource("AnimationLibrary_3te3y")
 }
 
 [node name="Sprite2D" parent="." index="1"]
@@ -658,6 +658,9 @@ character = NodePath("..")
 [node name="MovementComponent" parent="." index="9" node_paths=PackedStringArray("character")]
 character = NodePath("..")
 
+[node name="StateMachine" parent="." index="10" node_paths=PackedStringArray("initial_states")]
+initial_states = [NodePath("MovementStateMachine"), NodePath("PatrolState")]
+
 [node name="MovementStateMachine" parent="StateMachine" index="0" node_paths=PackedStringArray("movement_component")]
 movement_component = NodePath("../../MovementComponent")
 
@@ -678,18 +681,23 @@ health_component = NodePath("../../HealthComponent")
 attack_component = NodePath("../../AttackComponent")
 movement_component = NodePath("../../MovementComponent")
 
-[node name="HitboxComponent" parent="." index="11" node_paths=PackedStringArray("health_component")]
+[node name="HitboxComponent" parent="." index="11" node_paths=PackedStringArray("health_component", "gravity_center")]
 health_component = NodePath("../HealthComponent")
+gravity_center = NodePath("../GravityCenter")
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]
-position = Vector2(-1, -40)
+position = Vector2(-1, -42)
 shape = SubResource("RectangleShape2D_t0733")
 
-[node name="AttackAreaComponent" parent="." index="12" node_paths=PackedStringArray("attack_component")]
+[node name="AttackAreaComponent" parent="." index="12" node_paths=PackedStringArray("attack_component", "gravity_center")]
 attack_component = NodePath("../AttackComponent")
+gravity_center = NodePath("../GravityCenter")
 
 [node name="CollisionShape2D" parent="AttackAreaComponent" index="0"]
-position = Vector2(-2, 6.5)
+position = Vector2(-2, 6)
 shape = SubResource("RectangleShape2D_b53i2")
+
+[node name="GravityCenter" parent="." index="13"]
+position = Vector2(-5, 5)
 
 [editable path="StateMachine"]

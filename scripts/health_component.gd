@@ -1,7 +1,7 @@
 class_name HealthComponent extends Node
 
 @export var character: CharacterBody2D
-@export var max_hp: float = 10
+@export var max_hp: float = 5
 
 @onready var hp: float = max_hp
 @onready var stop_taking_damage_timer: Timer = $StopTakingDamageTimer

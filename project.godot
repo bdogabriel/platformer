@@ -13,6 +13,7 @@ config_version=5
 config/name="Platformer"
 run/main_scene="res://scenes/test.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://addons/Treasure Hunters/icon.png"
 
 [autoload]
 
@@ -26,6 +27,10 @@ window/size/viewport_height=720
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/SpritesheetGenerator/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
@@ -94,10 +99,13 @@ confirm={
 
 [layer_names]
 
-2d_physics/layer_1="characters"
-2d_physics/layer_2="hitboxes"
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemies"
 2d_physics/layer_3="terrain"
-2d_physics/layer_4="attack_areas"
+2d_physics/layer_4="player_attack_areas"
+2d_physics/layer_5="player_hitboxes"
+2d_physics/layer_6="enemies_attack_areas"
+2d_physics/layer_7="enemies_hitboxes"
 
 [navigation]
 

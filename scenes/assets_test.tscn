@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cbjtql4lpnj4"]
+[gd_scene load_steps=64 format=3 uid="uid://cbjtql4lpnj4"]
 
 [ext_resource type="Texture2D" uid="uid://cm6jor07mp78h" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_ae8tg"]
 [ext_resource type="Texture2D" uid="uid://c1cfff7jo3fcw" path="res://addons/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="1_feul4"]
@@ -33,6 +33,33 @@
 [ext_resource type="Texture2D" uid="uid://cjtgo2e1fm3yp" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="31_xvfjr"]
 [ext_resource type="Texture2D" uid="uid://b7eow2dh0qkwd" path="res://addons/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="32_6kgcj"]
 [ext_resource type="Texture2D" uid="uid://b5in1jrk5ewpy" path="res://addons/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="33_qdnvu"]
+[ext_resource type="Texture2D" uid="uid://b1nxe3w463c0v" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/05.png" id="34_8o0ut"]
+[ext_resource type="Texture2D" uid="uid://beksocgy3bdj0" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/03.png" id="35_sw7p7"]
+[ext_resource type="Texture2D" uid="uid://dg5tdvjykef71" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="36_27186"]
+[ext_resource type="Texture2D" uid="uid://dakj5m4eb7rx8" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/03.png" id="37_04f5m"]
+[ext_resource type="Texture2D" uid="uid://b3rgmfc53pyw0" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Green Diamond/01.png" id="38_m66kn"]
+[ext_resource type="Texture2D" uid="uid://cocuwsmv4m1ya" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/01.png" id="39_gmxqc"]
+[ext_resource type="Texture2D" uid="uid://c8ooy8vhkw0hp" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/06.png" id="40_naayt"]
+[ext_resource type="Texture2D" uid="uid://bxf4ls3io76kx" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/01.png" id="41_3hnk3"]
+[ext_resource type="Texture2D" uid="uid://d3hxbthqhrjs5" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/01.png" id="42_qvdct"]
+[ext_resource type="Texture2D" uid="uid://imweig0bs7lq" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/1.png" id="43_ovi4n"]
+[ext_resource type="Texture2D" uid="uid://cuil7j8n160yr" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/2.png" id="44_gb8bl"]
+[ext_resource type="Texture2D" uid="uid://cqy40trcg0x3s" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/3.png" id="45_b1qpi"]
+[ext_resource type="Texture2D" uid="uid://cj51fnh1n0xd8" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/4.png" id="46_30xja"]
+[ext_resource type="Texture2D" uid="uid://ga8ngm3n57fo" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/1.png" id="47_gpse4"]
+[ext_resource type="Texture2D" uid="uid://bwtl5svrw3hep" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/2.png" id="48_e5hgq"]
+[ext_resource type="Texture2D" uid="uid://d1jj31ghut1mf" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/3.png" id="49_m3wnd"]
+[ext_resource type="Texture2D" uid="uid://bfetwynw0ytiv" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/4.png" id="50_axjdw"]
+[ext_resource type="Texture2D" uid="uid://c4txhwf6jhxaj" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/1.png" id="51_drq55"]
+[ext_resource type="Texture2D" uid="uid://bsy3vl7fysxai" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/2.png" id="52_v16tt"]
+[ext_resource type="Texture2D" uid="uid://dx6jj2m2pmolm" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/3.png" id="53_7endd"]
+[ext_resource type="Texture2D" uid="uid://caroch226k2kx" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/4.png" id="54_5wqdx"]
+[ext_resource type="Texture2D" uid="uid://d0pn55pofjd71" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/5.png" id="55_og2g7"]
+[ext_resource type="Texture2D" uid="uid://ddo2k4aumrwdb" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Small Bars/1.png" id="56_ely7a"]
+[ext_resource type="Texture2D" uid="uid://cij0jjpa3sfal" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Small Bars/2.png" id="57_qy6qh"]
+[ext_resource type="Texture2D" uid="uid://dbg0j52do4tn3" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Small Bars/3.png" id="58_n5wjb"]
+[ext_resource type="Texture2D" uid="uid://bkdci2y28csk" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Small Bars/4.png" id="59_7je0x"]
+[ext_resource type="Texture2D" uid="uid://c7v35csca2ssg" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Small Bars/5.png" id="60_3yqo5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pxs2v"]
 animations = [{
@@ -193,7 +220,7 @@ position = Vector2(1606, 59)
 texture = ExtResource("29_8v0lj")
 
 [node name="Spikes" type="Sprite2D" parent="."]
-position = Vector2(-478, 67.9999)
+position = Vector2(-1376, -224)
 scale = Vector2(8.875, 8.875)
 texture = ExtResource("30_k0wdl")
 
@@ -211,3 +238,138 @@ texture = ExtResource("32_6kgcj")
 position = Vector2(472.904, -1016.25)
 scale = Vector2(2.49399, 2.49399)
 texture = ExtResource("33_qdnvu")
+
+[node name="05" type="Sprite2D" parent="."]
+position = Vector2(-1697, -769)
+scale = Vector2(10.8077, 10.8077)
+texture = ExtResource("34_8o0ut")
+
+[node name="03" type="Sprite2D" parent="."]
+position = Vector2(-885, -530)
+scale = Vector2(10.3333, 10.3333)
+texture = ExtResource("35_sw7p7")
+
+[node name="01" type="Sprite2D" parent="."]
+position = Vector2(-1209, -548)
+scale = Vector2(13.5, 13.5)
+texture = ExtResource("36_27186")
+
+[node name="04" type="Sprite2D" parent="."]
+position = Vector2(-1697, -330)
+scale = Vector2(10.1587, 9.85989)
+texture = ExtResource("37_04f5m")
+
+[node name="02" type="Sprite2D" parent="."]
+position = Vector2(-893, -732)
+scale = Vector2(10.6458, 10.6458)
+texture = ExtResource("38_m66kn")
+
+[node name="06" type="Sprite2D" parent="."]
+position = Vector2(-880, -325)
+scale = Vector2(9.25, 9.25)
+texture = ExtResource("39_gmxqc")
+
+[node name="07" type="Sprite2D" parent="."]
+position = Vector2(-1694, -561)
+scale = Vector2(11.8846, 11.8846)
+texture = ExtResource("40_naayt")
+
+[node name="08" type="Sprite2D" parent="."]
+position = Vector2(-2021, -655)
+scale = Vector2(19, 19)
+texture = ExtResource("41_3hnk3")
+
+[node name="09" type="Sprite2D" parent="."]
+position = Vector2(-1210, -735)
+scale = Vector2(15.0625, 15.0625)
+texture = ExtResource("42_qvdct")
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(-1852, -1456)
+scale = Vector2(10, 10)
+texture = ExtResource("43_ovi4n")
+
+[node name="8" type="Sprite2D" parent="."]
+position = Vector2(-1835, -1204)
+scale = Vector2(10, 10)
+texture = ExtResource("44_gb8bl")
+
+[node name="9" type="Sprite2D" parent="."]
+position = Vector2(-1464, -1339)
+scale = Vector2(10, 10)
+texture = ExtResource("45_b1qpi")
+
+[node name="10" type="Sprite2D" parent="."]
+position = Vector2(-1100, -1336)
+scale = Vector2(10, 10)
+texture = ExtResource("46_30xja")
+
+[node name="11" type="Sprite2D" parent="."]
+position = Vector2(-2207, -1524)
+scale = Vector2(10, 10)
+texture = ExtResource("47_gpse4")
+
+[node name="12" type="Sprite2D" parent="."]
+position = Vector2(-2209, -1410)
+scale = Vector2(10, 10)
+texture = ExtResource("48_e5hgq")
+
+[node name="13" type="Sprite2D" parent="."]
+position = Vector2(-2206, -1448)
+scale = Vector2(10, 10)
+texture = ExtResource("49_m3wnd")
+
+[node name="14" type="Sprite2D" parent="."]
+position = Vector2(-2207, -1482)
+scale = Vector2(10, 10)
+texture = ExtResource("50_axjdw")
+
+[node name="15" type="Sprite2D" parent="."]
+position = Vector2(-2758, -1012)
+scale = Vector2(5, 5)
+texture = ExtResource("51_drq55")
+
+[node name="16" type="Sprite2D" parent="."]
+position = Vector2(-2765, -1224)
+scale = Vector2(5, 5)
+texture = ExtResource("52_v16tt")
+
+[node name="17" type="Sprite2D" parent="."]
+position = Vector2(-2761, -1110)
+scale = Vector2(5, 5)
+texture = ExtResource("53_7endd")
+
+[node name="18" type="Sprite2D" parent="."]
+position = Vector2(-2581, -1229)
+scale = Vector2(5, 5)
+texture = ExtResource("54_5wqdx")
+
+[node name="19" type="Sprite2D" parent="."]
+position = Vector2(-2564, -1108)
+scale = Vector2(5, 5)
+texture = ExtResource("55_og2g7")
+
+[node name="20" type="Sprite2D" parent="."]
+position = Vector2(-2423, -1257)
+scale = Vector2(5, 5)
+texture = ExtResource("56_ely7a")
+
+[node name="21" type="Sprite2D" parent="."]
+position = Vector2(-2344, -1229)
+scale = Vector2(5, 5)
+texture = ExtResource("57_qy6qh")
+
+[node name="22" type="Sprite2D" parent="."]
+position = Vector2(-2266, -1204)
+scale = Vector2(5, 5)
+texture = ExtResource("58_n5wjb")
+
+[node name="23" type="Sprite2D" parent="."]
+position = Vector2(-2423, -1200)
+scale = Vector2(5, 5)
+texture = ExtResource("59_7je0x")
+
+[node name="24" type="Sprite2D" parent="."]
+position = Vector2(-2262, -1245)
+scale = Vector2(5, 5)
+texture = ExtResource("60_3yqo5")

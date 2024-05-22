@@ -1,6 +1,6 @@
 class_name StateMachine extends State
 
-@export var initial_states: Array[String]
+@export var initial_states: Array[State]
 
 var states_dict: Dictionary
 var current_states: Dictionary
@@ -9,8 +9,8 @@ var frozen = false
 
 func _ready():
 	_update_states_dict()
-	for state_name in initial_states:
-		_current_states_add(state_name)
+	for state in initial_states:
+		_current_states_add(state.name_format())
 
 func change_state(state_name: String, next_state_name: String) -> void:
 	if frozen:

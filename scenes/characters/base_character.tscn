@@ -640,7 +640,6 @@ modulate = Color(1, 1, 1, 0.5)
 [node name="MovementComponent" parent="." instance=ExtResource("2_eooj5")]
 
 [node name="StateMachine" parent="." instance=ExtResource("6_bu5ey")]
-initial_states = Array[String](["floor"])
 
 [node name="MovementStateMachine" parent="StateMachine" instance=ExtResource("3_625hv")]
 
@@ -657,3 +656,5 @@ debug_color = Color(0.701961, 0.596078, 0.0705882, 0.431373)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackAreaComponent"]
 debug_color = Color(0.121569, 0.6, 0.121569, 0.431373)
+
+[node name="GravityCenter" type="Marker2D" parent="."]
