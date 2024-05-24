@@ -2,9 +2,9 @@
 
 # plugins
 addons/Todo_Manager
-addons/SpritesheetGenerator
 
 # misc
 *.tmp
 *.import
 *.DS_Store
+*.fon

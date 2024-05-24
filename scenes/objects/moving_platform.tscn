@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxxxbec54436l"]
+
+[ext_resource type="Texture2D" uid="uid://b7eow2dh0qkwd" path="res://addons/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="1_8wi6k"]
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_xvc4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4xw0"]
+size = Vector2(32.25, 7)
+
+[sub_resource type="Animation" id="Animation_qh6kc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mg4kr"]
+resource_name = "move_closed"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_wkax4"]
+resource_name = "move_open"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-1.56, -1.56, -1.56),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iaivk"]
+_data = {
+"RESET": SubResource("Animation_qh6kc"),
+"move_closed": SubResource("Animation_mg4kr"),
+"move_open": SubResource("Animation_wkax4")
+}
+
+[node name="MovingPlatform" type="Path2D"]
+position = Vector2(-80, 13)
+scale = Vector2(4, 4)
+script = ExtResource("1_xvc4k")
+metadata/_edit_group_ = true
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(20, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("1_8wi6k")
+region_enabled = true
+region_rect = Rect2(128, 64, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-0.125, -3.5)
+shape = SubResource("RectangleShape2D_p4xw0")
+one_way_collision = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(20, 0)
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+callback_mode_process = 0
+libraries = {
+"": SubResource("AnimationLibrary_iaivk")
+}

@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://ttaxniyj6jv8"]
+
+[ext_resource type="PackedScene" uid="uid://damg2ony0dq5s" path="res://scenes/items/pickup.tscn" id="1_0ruxl"]
+[ext_resource type="Script" path="res://scripts/coin.gd" id="2_ah6tp"]
+[ext_resource type="Texture2D" uid="uid://byqoyh4rmmkhf" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/Gold Coin.png" id="3_wrp2j"]
+[ext_resource type="Texture2D" uid="uid://dqlfcpvkvsgyt" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/Coin Effect.png" id="4_ga5n1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n38p6"]
+atlas = ExtResource("3_wrp2j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc5du"]
+atlas = ExtResource("3_wrp2j")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x51mc"]
+atlas = ExtResource("3_wrp2j")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeedn"]
+atlas = ExtResource("3_wrp2j")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nicyq"]
+atlas = ExtResource("4_ga5n1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7psp"]
+atlas = ExtResource("4_ga5n1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j28w6"]
+atlas = ExtResource("4_ga5n1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ynp5b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n38p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc5du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x51mc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeedn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nicyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7psp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j28w6")
+}],
+"loop": false,
+"name": &"picked_up",
+"speed": 10.0
+}]
+
+[node name="Coin" instance=ExtResource("1_0ruxl")]
+script = ExtResource("2_ah6tp")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_ynp5b")

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b4hs40kftrxa7"]
+
+[ext_resource type="FontFile" uid="uid://b62520i1xvjse" path="res://addons/Fonts/charybdis/chary___.ttf" id="1_2djoq"]
+
+[resource]
+font = ExtResource("1_2djoq")
+font_color = Color(0.29, 0.0987933, 0.0232, 0.701961)

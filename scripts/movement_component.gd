@@ -37,7 +37,10 @@ func _physics_process(delta: float) -> void:
 	
 	if character.is_on_floor():
 		jump_inertia = 0
-		if is_jumping:
+		# go down on platforms
+		if direction.y > 0:
+			character.position.y += 5
+		elif is_jumping:
 			jump()
 
 	# jumping
@@ -71,20 +74,18 @@ func knock(normal: Vector2, stun: bool = true, knock_speed: float = speed * 2.5)
 	if not stun and direction:
 		if direction == Vector2i.UP:
 			# if jumping on impact just goes up to give more control to the player
-			knock_dir = Vector2.UP 
+			knock_dir = Vector2.UP
 		else:
 			# just adds direction to the normal
 			knock_dir = (normal + Vector2(direction)).normalized()
 	
-	# to avoid characters jumping after grounded hits
-	if character.is_on_floor():
-		knock_dir.y = 0
-	
 	character.velocity = knock_dir * knock_speed
-	set_direction(knock_dir.sign())
 	
 	if stun:
+		set_direction(Vector2i(0, 0))
 		stop_movement()
+	else:
+		set_direction(knock_dir.sign())
 
 func jump():
 	character.velocity.y = jump_initial_velocity

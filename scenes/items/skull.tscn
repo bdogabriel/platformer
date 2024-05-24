@@ -1,0 +1,118 @@
+[gd_scene load_steps=19 format=3 uid="uid://2yx1nq8uvdue"]
+
+[ext_resource type="PackedScene" uid="uid://damg2ony0dq5s" path="res://scenes/items/pickup.tscn" id="1_4wbgb"]
+[ext_resource type="Script" path="res://scripts/skull.gd" id="2_t7c0a"]
+[ext_resource type="Texture2D" uid="uid://cjbx1wv4yeobk" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/Golden Skull.png" id="3_junde"]
+[ext_resource type="Texture2D" uid="uid://dinen7l7msenm" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Skull Effect/Skull Effect.png" id="4_4jviu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqpbn"]
+atlas = ExtResource("3_junde")
+region = Rect2(0, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvqd7"]
+atlas = ExtResource("3_junde")
+region = Rect2(24, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxep4"]
+atlas = ExtResource("3_junde")
+region = Rect2(48, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vth61"]
+atlas = ExtResource("3_junde")
+region = Rect2(72, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u0q2"]
+atlas = ExtResource("3_junde")
+region = Rect2(96, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h33dg"]
+atlas = ExtResource("3_junde")
+region = Rect2(120, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yees"]
+atlas = ExtResource("3_junde")
+region = Rect2(144, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unfsc"]
+atlas = ExtResource("3_junde")
+region = Rect2(168, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_108t1"]
+atlas = ExtResource("4_4jviu")
+region = Rect2(0, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsxkw"]
+atlas = ExtResource("4_4jviu")
+region = Rect2(24, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85xp5"]
+atlas = ExtResource("4_4jviu")
+region = Rect2(48, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3wcq"]
+atlas = ExtResource("4_4jviu")
+region = Rect2(72, 0, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07dnk"]
+atlas = ExtResource("4_4jviu")
+region = Rect2(96, 0, 24, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixyom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqpbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvqd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxep4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vth61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u0q2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h33dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yees")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unfsc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_108t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsxkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85xp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3wcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07dnk")
+}],
+"loop": false,
+"name": &"picked_up",
+"speed": 10.0
+}]
+
+[node name="Skull" instance=ExtResource("1_4wbgb")]
+scale = Vector2(6, 6)
+script = ExtResource("2_t7c0a")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-1, -5.25)
+sprite_frames = SubResource("SpriteFrames_ixyom")

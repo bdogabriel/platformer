@@ -32,6 +32,10 @@ enabled=PackedStringArray("res://addons/SpritesheetGenerator/plugin.cfg", "res:/
 
 import/blender/enabled=false
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+
 [input]
 
 ui_left={
@@ -106,6 +110,7 @@ confirm={
 2d_physics/layer_5="player_hitboxes"
 2d_physics/layer_6="enemies_attack_areas"
 2d_physics/layer_7="enemies_hitboxes"
+2d_physics/layer_8="pickups"
 
 [navigation]
 

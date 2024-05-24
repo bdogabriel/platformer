@@ -506,9 +506,12 @@ size = Vector2(56, 76)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4aqxv"]
 size = Vector2(90, 20)
 
-[node name="Player" node_paths=PackedStringArray("movement_component") groups=["player"] instance=ExtResource("1_ft8wo")]
+[node name="Player" node_paths=PackedStringArray("movement_component", "health_component") groups=["player"] instance=ExtResource("1_ft8wo")]
+collision_layer = 1
+collision_mask = 132
 script = ExtResource("2_bwnhr")
 movement_component = NodePath("MovementComponent")
+health_component = NodePath("HealthComponent")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -548,7 +551,8 @@ initial_states = [NodePath("MovementStateMachine")]
 [node name="MovementStateMachine" parent="StateMachine" index="0" node_paths=PackedStringArray("movement_component")]
 movement_component = NodePath("../../MovementComponent")
 
-[node name="HitState" parent="StateMachine" index="1" node_paths=PackedStringArray("movement_component", "hitbox_components")]
+[node name="HitState" parent="StateMachine" index="1" node_paths=PackedStringArray("health_component", "movement_component", "hitbox_components")]
+health_component = NodePath("../../HealthComponent")
 movement_component = NodePath("../../MovementComponent")
 hitbox_components = [NodePath("../../HitboxComponent")]
 
@@ -557,10 +561,9 @@ health_component = NodePath("../../HealthComponent")
 attack_component = NodePath("../../AttackComponent")
 movement_component = NodePath("../../MovementComponent")
 
-[node name="HitboxComponent" parent="." index="10" node_paths=PackedStringArray("health_component", "gravity_center")]
+[node name="HitboxComponent" parent="." index="10" node_paths=PackedStringArray("gravity_center")]
 collision_layer = 16
 collision_mask = 32
-health_component = NodePath("../HealthComponent")
 gravity_center = NodePath("../GravityCenter")
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]

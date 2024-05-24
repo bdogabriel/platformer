@@ -1,7 +1,8 @@
 extends Node
 
-# TODO: use pattern for private variables and methods to create documentation later
-# TODO: document scripts according to https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_documentation_comments.html
-# TODO: add descriptions to exported variables
+# TODO: add descriptions to exported variables in all scripts
 
 var player_global_position: Vector2
+var player_potion_count: int = 0
+var player_coin_count: int = 0
+var player_health_component: HealthComponent

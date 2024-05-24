@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://damg2ony0dq5s"]
+
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_no5mw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_167wr"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"picked_up",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_306jk"]
+radius = 8.53302
+
+[node name="Pickup" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_no5mw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_167wr")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_306jk")

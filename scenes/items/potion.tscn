@@ -1,0 +1,104 @@
+[gd_scene load_steps=17 format=3 uid="uid://cn0uqwtbdaxg8"]
+
+[ext_resource type="Script" path="res://scripts/potion.gd" id="1_cvtyj"]
+[ext_resource type="PackedScene" uid="uid://damg2ony0dq5s" path="res://scenes/items/pickup.tscn" id="1_m4ug2"]
+[ext_resource type="Texture2D" uid="uid://bk5elgdp3t170" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/Red Potion.png" id="2_75mk6"]
+[ext_resource type="Texture2D" uid="uid://drxgj7s2glm2j" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Potion Effect/Potion Effect.png" id="3_tvpnu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63woq"]
+atlas = ExtResource("2_75mk6")
+region = Rect2(0, 0, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edrp1"]
+atlas = ExtResource("2_75mk6")
+region = Rect2(13, 0, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvsg6"]
+atlas = ExtResource("2_75mk6")
+region = Rect2(26, 0, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xq1x"]
+atlas = ExtResource("2_75mk6")
+region = Rect2(39, 0, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrt0h"]
+atlas = ExtResource("2_75mk6")
+region = Rect2(52, 0, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh7bk"]
+atlas = ExtResource("2_75mk6")
+region = Rect2(65, 0, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqoon"]
+atlas = ExtResource("2_75mk6")
+region = Rect2(78, 0, 13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36jit"]
+atlas = ExtResource("3_tvpnu")
+region = Rect2(0, 0, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgvql"]
+atlas = ExtResource("3_tvpnu")
+region = Rect2(16, 0, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdncb"]
+atlas = ExtResource("3_tvpnu")
+region = Rect2(32, 0, 16, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6afy"]
+atlas = ExtResource("3_tvpnu")
+region = Rect2(48, 0, 16, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rorab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63woq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edrp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvsg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xq1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrt0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh7bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqoon")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36jit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgvql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdncb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6afy")
+}],
+"loop": false,
+"name": &"picked_up",
+"speed": 10.0
+}]
+
+[node name="Potion" instance=ExtResource("1_m4ug2")]
+script = ExtResource("1_cvtyj")
+heal_amount = 1.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -1.5)
+sprite_frames = SubResource("SpriteFrames_rorab")

@@ -664,7 +664,8 @@ initial_states = [NodePath("MovementStateMachine"), NodePath("PatrolState")]
 [node name="MovementStateMachine" parent="StateMachine" index="0" node_paths=PackedStringArray("movement_component")]
 movement_component = NodePath("../../MovementComponent")
 
-[node name="HitState" parent="StateMachine" index="1" node_paths=PackedStringArray("movement_component", "hitbox_components")]
+[node name="HitState" parent="StateMachine" index="1" node_paths=PackedStringArray("health_component", "movement_component", "hitbox_components")]
+health_component = NodePath("../../HealthComponent")
 movement_component = NodePath("../../MovementComponent")
 hitbox_components = [NodePath("../../HitboxComponent")]
 
@@ -681,8 +682,7 @@ health_component = NodePath("../../HealthComponent")
 attack_component = NodePath("../../AttackComponent")
 movement_component = NodePath("../../MovementComponent")
 
-[node name="HitboxComponent" parent="." index="11" node_paths=PackedStringArray("health_component", "gravity_center")]
-health_component = NodePath("../HealthComponent")
+[node name="HitboxComponent" parent="." index="11" node_paths=PackedStringArray("gravity_center")]
 gravity_center = NodePath("../GravityCenter")
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]
