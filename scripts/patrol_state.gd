@@ -2,7 +2,7 @@ extends State
 
 @export var navigation_component: NavigationComponent
 
-@onready var character: CharacterBody2D = navigation_component.movement_component.character
+@onready var character: BaseCharacter = navigation_component.movement_component.character
 
 var patrol_points: Array[Marker2D]
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 			marker.global_position = character.global_position
 			patrol_points.append(marker)
 
-func _enter(_last_state_name) -> void:
+func _enter() -> void:
 	navigation_component.set_update_target_func(_update_target)
 
 func _update_target(navigation_agent: NavigationAgent2D) -> void:

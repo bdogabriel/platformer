@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://rx5con2gfiyn"]
+
+[ext_resource type="PackedScene" uid="uid://dy8wdu5hgfcwq" path="res://scenes/objects/obstacle.tscn" id="1_2b31y"]
+[ext_resource type="Texture2D" uid="uid://2jhn6cvxoq5f" path="res://addons/Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="2_y8uwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c60pk"]
+size = Vector2(26, 8)
+
+[node name="Spikes" instance=ExtResource("1_2b31y")]
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_y8uwu")
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_c60pk")
+
+[node name="GravityCenter" parent="." index="3"]
+position = Vector2(0, 16)
+
+[editable path="AttackArea"]

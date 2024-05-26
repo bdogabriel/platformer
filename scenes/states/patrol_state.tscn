@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/patrol_state.gd" id="1_t5tk0"]
 
-[node name="PatrolState" type="Node"]
+[node name="PatrolState" type="Node2D"]
 script = ExtResource("1_t5tk0")

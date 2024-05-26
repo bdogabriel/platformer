@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://x2auwo0rtvy6"]
+
+[ext_resource type="PackedScene" uid="uid://dnhcrtpxjq7q2" path="res://scenes/characters/enemy.tscn" id="1_8l6m6"]
+[ext_resource type="Texture2D" uid="uid://cgnaeuvueajyi" path="res://addons/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/Sheet.png" id="2_gb6qb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i2m3w"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uesev"]
+size = Vector2(14, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1a7m"]
+size = Vector2(22, 12)
+
+[node name="PinkStar" instance=ExtResource("1_8l6m6")]
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_gb6qb")
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_i2m3w")
+
+[node name="MovementComponent" parent="." index="4"]
+speed = 20.0
+
+[node name="HealthComponent" parent="." index="5"]
+max_hp = 2.0
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_uesev")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(1, -5)
+shape = SubResource("RectangleShape2D_q1a7m")
+
+[node name="FollowPlayerState" parent="StateMachine" index="0"]
+aggro_radius = 0.0
+lose_aggro_radius = 0.0
+
+[editable path="AttackArea"]
+[editable path="Hitbox"]

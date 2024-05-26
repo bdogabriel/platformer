@@ -1,20 +1,15 @@
-class_name State extends Node
-
-@export var has_animation: bool = true
+class_name State extends Node2D
 
 @onready var state_machine: StateMachine = find_parent("*StateMachine")
 
-var prev_state_name: String
-
-func _enter(_last_state_name: String) -> void:
+func _enter() -> void:
 	pass
 	
 func _exit() -> void:
 	pass
 
-func enter(last_state_name: String = "") -> void:
-	prev_state_name = last_state_name
-	_enter(last_state_name)
+func enter() -> void:
+	_enter()
 	
 func exit() -> void:
 	_exit()

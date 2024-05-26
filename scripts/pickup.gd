@@ -6,15 +6,11 @@ class_name Pickup extends Node2D
 func _ready() -> void:
 	area.body_entered.connect(_on_body_entered)
 
-func _process(_delta) -> void:
-	if not animated_sprite.is_playing():
-		queue_free()
-
 func _on_body_entered(body: Player) -> void:
 	animated_sprite.play("picked_up")
+	await animated_sprite.animation_finished
 	_on_picked_up(body)
-	set_process(true)
-	area.queue_free()
+	queue_free()
 
 func _on_picked_up(_player: Player) -> void:
 	pass

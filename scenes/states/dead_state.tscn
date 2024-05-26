@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://7cavhxkcqggr"]
-
-[ext_resource type="Script" path="res://scripts/dead_state.gd" id="1_k35ay"]
-
-[node name="DeadState" type="Node"]
-script = ExtResource("1_k35ay")

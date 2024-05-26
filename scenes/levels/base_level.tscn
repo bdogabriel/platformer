@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch45u26i7chl"]
+
+[ext_resource type="Script" path="res://scripts/base_level.gd" id="1_jttd2"]
+[ext_resource type="TileSet" uid="uid://bn2f34ptpsy3i" path="res://resources/main_tile_set.tres" id="1_tpolj"]
+[ext_resource type="PackedScene" uid="uid://c8i6e4nya3d2n" path="res://scenes/ui/hud.tscn" id="2_whb4a"]
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_jttd2")
+metadata/_edit_lock_ = true
+
+[node name="TileMap" type="TileMap" parent="." groups=["map"]]
+tile_set = ExtResource("1_tpolj")
+format = 2
+layer_0/name = "Terrain"
+layer_1/name = "Background"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Platforms"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Obstacles"
+layer_3/tile_data = PackedInt32Array()
+metadata/_edit_lock_ = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Pickups" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Enemies" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="PatrolPoints" type="Node2D" parent="Enemies"]
+metadata/_edit_lock_ = true
+
+[node name="HUD" parent="." instance=ExtResource("2_whb4a")]
+
+[node name="StartPosition" type="Marker2D" parent="."]

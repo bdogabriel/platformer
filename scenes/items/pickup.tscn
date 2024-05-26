@@ -19,7 +19,6 @@ animations = [{
 radius = 8.53302
 
 [node name="Pickup" type="Node2D"]
-scale = Vector2(4, 4)
 script = ExtResource("1_no5mw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

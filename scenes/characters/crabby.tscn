@@ -1,0 +1,212 @@
+[gd_scene load_steps=16 format=3 uid="uid://2vs4fn3icijf"]
+
+[ext_resource type="PackedScene" uid="uid://dnhcrtpxjq7q2" path="res://scenes/characters/enemy.tscn" id="1_4njxb"]
+[ext_resource type="Texture2D" uid="uid://cqj36urr3f4xg" path="res://addons/Treasure Hunters/The Crusty Crew/Sprites/Crabby/Sheet.png" id="2_khuns"]
+
+[sub_resource type="Animation" id="Animation_otf0c"]
+resource_name = "RESET"
+length = 0.001
+step = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0kmag"]
+resource_name = "dead_hit"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [54, 55, 56, 57]
+}
+
+[sub_resource type="Animation" id="Animation_7brej"]
+resource_name = "dead_land"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [63, 64, 65, 66]
+}
+
+[sub_resource type="Animation" id="Animation_0ycw1"]
+resource_name = "fall"
+length = 0.10001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [27]
+}
+
+[sub_resource type="Animation" id="Animation_de6ay"]
+resource_name = "hit"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [45, 46, 47, 48]
+}
+
+[sub_resource type="Animation" id="Animation_b2ekf"]
+resource_name = "idle"
+length = 0.90001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_vnv3x"]
+resource_name = "jump"
+length = 0.30001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_q86ta"]
+resource_name = "land"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [36, 37]
+}
+
+[sub_resource type="Animation" id="Animation_iog7f"]
+resource_name = "run"
+length = 0.60001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prmvd"]
+_data = {
+"RESET": SubResource("Animation_otf0c"),
+"dead_hit": SubResource("Animation_0kmag"),
+"dead_land": SubResource("Animation_7brej"),
+"fall": SubResource("Animation_0ycw1"),
+"hit": SubResource("Animation_de6ay"),
+"idle": SubResource("Animation_b2ekf"),
+"jump": SubResource("Animation_vnv3x"),
+"land": SubResource("Animation_q86ta"),
+"run": SubResource("Animation_iog7f")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ddwi"]
+radius = 11.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxwik"]
+size = Vector2(17, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tm6pq"]
+size = Vector2(42, 10)
+
+[node name="Crabby" instance=ExtResource("1_4njxb")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_prmvd")
+}
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_khuns")
+hframes = 9
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_4ddwi")
+
+[node name="MovementComponent" parent="." index="4"]
+speed = 5.0
+jump_initial_velocity = 30.0
+
+[node name="HealthComponent" parent="." index="5"]
+max_hp = 7.0
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_uxwik")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(1, -8)
+shape = SubResource("RectangleShape2D_tm6pq")
+
+[node name="FollowPlayerState" parent="StateMachine" index="0"]
+aggro_radius = 200.0
+lose_aggro_radius = 250.0
+
+[editable path="AttackArea"]
+[editable path="Hitbox"]

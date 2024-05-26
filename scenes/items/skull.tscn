@@ -110,7 +110,7 @@ animations = [{
 }]
 
 [node name="Skull" instance=ExtResource("1_4wbgb")]
-scale = Vector2(6, 6)
+scale = Vector2(2, 2)
 script = ExtResource("2_t7c0a")
 
 [node name="AnimatedSprite2D" parent="." index="0"]

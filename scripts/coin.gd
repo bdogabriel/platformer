@@ -1,4 +1,4 @@
 extends Pickup
 
-func _on_picked_up(_player: Player):
-	GameManager.player_coin_count += 1
+func _on_picked_up(player: Player):
+	player.coin_count += 1

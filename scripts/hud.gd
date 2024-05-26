@@ -1,19 +1,18 @@
-extends CanvasLayer
+class_name HUD extends CanvasLayer
 
-@onready var player_health_component: HealthComponent = GameManager.player_health_component
 @onready var progress_bar: TextureProgressBar = $HealthBar/TextureProgressBar
 @onready var coin_count_label: Label = $ScorePanel/Panel/CoinCountLabel
 @onready var potion_count_label: Label = $ScorePanel/Panel/PotionCountLabel
 
+var player: Player # set by player
+
 func _ready():
-	progress_bar.max_value = player_health_component.max_hp
-	progress_bar.value = player_health_component.hp
-	coin_count_label.text = str(GameManager.player_coin_count)
-	potion_count_label.text = str(GameManager.player_potion_count)
+	GameManager.hud = self
 
 func _process(_delta):
-	if is_instance_valid(player_health_component):
-		progress_bar.value = player_health_component.hp
-	coin_count_label.text = str(GameManager.player_coin_count)
-	potion_count_label.text = str(GameManager.player_potion_count)
+	if is_instance_valid(player):
+		progress_bar.max_value = player.health_component.max_hp
+		progress_bar.value = player.health_component.hp
+		coin_count_label.text = str(GameManager.player.coin_count)
+		potion_count_label.text = str(GameManager.player.potion_count)
 	

@@ -1,0 +1,8 @@
+[gd_resource type="NavigationPolygon" format=3 uid="uid://br0lp7xwqwsh2"]
+
+[resource]
+parsed_collision_mask = 4278190084
+source_geometry_mode = 1
+source_geometry_group_name = &"map"
+cell_size = 4.0
+agent_radius = 8.0

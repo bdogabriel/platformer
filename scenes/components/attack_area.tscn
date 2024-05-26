@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu3rt43vkg8de"]
+
+[ext_resource type="Script" path="res://scripts/attack_area.gd" id="1_f34hv"]
+
+[node name="AttackArea" type="Area2D"]
+collision_layer = 296
+collision_mask = 80
+script = ExtResource("1_f34hv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(0, 0.454902, 0.12549, 0.54902)

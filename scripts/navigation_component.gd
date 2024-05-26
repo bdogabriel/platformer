@@ -4,11 +4,10 @@ const JUMP_MIN_Y_DIRECTION: float = 0.8 # to avoid jumping too much (when is not
 const RUN_MIN_X_DIRECTION: float = 0.1
 
 @export var movement_component: MovementComponent
-
-@onready var character = movement_component.character
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var navigation_agent_timer: Timer = $Timer
 
+@onready var character: Enemy = movement_component.character
 var update_target_func: Callable = func update_target(_navigation_agent: NavigationAgent2D) -> void:
 	pass
 
@@ -18,8 +17,10 @@ func navigation_server_sync() -> void:
 	set_physics_process(true)
 
 func _ready() -> void:
+	# sync navigation server
 	set_physics_process(false)
-	call_deferred("navigation_server_sync")
+	await call_deferred("navigation_server_sync")
+	
 	navigation_agent_timer.timeout.connect(_on_nav_agent_timer_timeout)
 	navigation_agent.target_position = character.global_position
 

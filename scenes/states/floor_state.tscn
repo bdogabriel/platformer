@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfafm6vfaa1ew"]
-
-[ext_resource type="Script" path="res://scripts/floor_state.gd" id="1_bmfvv"]
-
-[node name="FloorState" type="Node"]
-script = ExtResource("1_bmfvv")

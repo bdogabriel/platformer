@@ -62,13 +62,11 @@ _data = {
 }
 
 [node name="MovingPlatform" type="Path2D"]
-position = Vector2(-80, 13)
-scale = Vector2(4, 4)
 script = ExtResource("1_xvc4k")
+speed_scale = 0.25
 metadata/_edit_group_ = true
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(20, 0)
 collision_layer = 4
 collision_mask = 3
 
@@ -83,7 +81,6 @@ shape = SubResource("RectangleShape2D_p4xw0")
 one_way_collision = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(20, 0)
 rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]

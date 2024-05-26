@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8i6e4nya3d2n"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_fh2ba"]
+[ext_resource type="Texture2D" uid="uid://8ai6cbf2ng70" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/Lifebar.png" id="2_vbdku"]
+[ext_resource type="Texture2D" uid="uid://chtj5dnubqctu" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/Life Bar Full.png" id="3_vkd3d"]
+[ext_resource type="Texture2D" uid="uid://deylpx6o5dfj6" path="res://addons/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/8.png" id="4_kng72"]
+[ext_resource type="Texture2D" uid="uid://dg5tdvjykef71" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="5_2w6hk"]
+[ext_resource type="LabelSettings" uid="uid://b4hs40kftrxa7" path="res://resources/font.tres" id="6_p4o81"]
+[ext_resource type="Texture2D" uid="uid://dg244cgi36q6m" path="res://addons/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/02.png" id="7_k3qq4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80nk0"]
+texture = ExtResource("4_kng72")
+texture_margin_left = 4.0
+texture_margin_top = 6.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(13, 15, 70, 66)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_fh2ba")
+
+[node name="HealthBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4, 4)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.75
+offset_top = -2.25
+offset_right = 80.25
+offset_bottom = 29.75
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+rounded = true
+texture_under = ExtResource("2_vbdku")
+texture_progress = ExtResource("3_vkd3d")
+texture_progress_offset = Vector2(17, 14)
+
+[node name="ScorePanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+
+[node name="Panel" type="Panel" parent="ScorePanel"]
+layout_mode = 1
+offset_left = 7.33333
+offset_top = 32.6667
+offset_right = 45.3333
+offset_bottom = 66.6667
+theme_override_styles/panel = SubResource("StyleBoxTexture_80nk0")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ScorePanel/Panel"]
+layout_mode = 2
+offset_left = 1.5
+offset_top = -0.25
+offset_right = 17.5
+offset_bottom = 16.75
+texture = ExtResource("5_2w6hk")
+stretch_mode = 5
+
+[node name="CoinCountLabel" type="Label" parent="ScorePanel/Panel"]
+layout_mode = 2
+offset_left = 18.0
+offset_right = 33.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "0"
+label_settings = ExtResource("6_p4o81")
+
+[node name="TextureRect2" type="TextureRect" parent="ScorePanel/Panel"]
+layout_mode = 2
+offset_left = 1.5
+offset_top = 14.25
+offset_right = 18.5
+offset_bottom = 31.25
+texture = ExtResource("7_k3qq4")
+stretch_mode = 5
+
+[node name="PotionCountLabel" type="Label" parent="ScorePanel/Panel"]
+layout_mode = 2
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 33.0
+offset_bottom = 32.0
+text = "0"
+label_settings = ExtResource("6_p4o81")
